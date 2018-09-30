@@ -2,6 +2,11 @@
 spl_autoload_register(function ($class) {
 	include 'classes/' . $class . '.php';
 });
+
+if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+	$uploader = new Image();
+	$uploader->open();
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -21,12 +26,21 @@ spl_autoload_register(function ($class) {
 	<div class="row">
 		<div class="col-6">
 			<h3>upload via link</h3>
-			<form class="form-inline js-uploadbylink">
-				<div class="form-group  mb-2">
-					<label for="link" class="sr-only">Link here</label>
-					<input type="text" class="form-control" id="link" name="link" placeholder="Link here">
+			<form class="js-uploadbylink">
+				<div class="form-group">
+					<label for="link" class="sr-only">Upload image via link</label>
+          <input type="text" class="form-control"  name="link" placeholder="Link here">
 				</div>
+<!--        <div class="form-group">-->
+<!--					<label for="link" class="sr-only">Upload image via link</label>-->
+<!--          <input type="text" class="form-control"  name="link[]" placeholder="Link here">-->
+<!--				</div>-->
+<!--        <div class="form-group">-->
+<!--					<label for="link" class="sr-only">Upload image via link</label>-->
+<!--          <input type="text" class="form-control"  name="link[]" placeholder="Link here">-->
+<!--				</div>-->
 				<button type="submit" class="btn btn-primary mb-2">Upload</button>
+        <div class="js-message" style="display: none;"></div>
 			</form>
 		</div>
 	</div>

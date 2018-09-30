@@ -11,10 +11,12 @@ function uploadvialink()
             url: "",
             data: form.serialize(),
             success: function(result){
-                $("#div1").html(result);
+                if(result.status == 'ok')
+                {
+                    $('.js-message').html('Success').show();
+                }
             },
             type: 'post',
-
         });
     });
 }
