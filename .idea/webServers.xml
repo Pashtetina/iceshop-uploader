@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="7f46a8de-f788-40a2-a63e-59401a4067fe" name="home" url="http://pashte01.ftp.tools">
+        <fileTransfer host="pashte01.ftp.tools" port="21" rootFolder="/pashtet.top/www">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
